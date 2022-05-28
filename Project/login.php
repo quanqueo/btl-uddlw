@@ -1,9 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
 <?php 
-    require 'layouts/header.php';
+    // session_start();
+    //require 'layouts/header.php';
     require_once 'db/dbhelper.php';
     require_once 'untils/untils.php';
 
-    session_start();
     $error = "";
     if(isset($_SESSION['user'])){
         header("Location: products.php");
@@ -11,7 +24,7 @@
         if(isset($_POST)){
             $user = getPost('uname');
             $pass = getPost('psw');
-            $sql = "SELECT * FROM username WHERE username = '$user' and password = '$pass'";
+            $sql = "SELECT * FROM sinhvien WHERE username = '$user' and password = '$pass'";
             $result = executeResult($sql);
             if(count($result) > 0){
                 $_SESSION['user'] = $user;
@@ -109,18 +122,19 @@
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <button type="submit">Login</button>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
+                    <button type="submit">Login</button>
+                    
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
+                    <a href="register.php" class="btn btn-success">Register</a>
+                    <a href="index.php" class="btn btn-danger">Cancel</a>
                     <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>
         </div>
     </div>
-<?php require 'layouts/footer.php'?>
+<?php //require 'layouts/footer.php'?>

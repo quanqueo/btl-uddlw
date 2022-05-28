@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="public/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
     <link rel="stylesheet" href="public/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="public/css/reset.css">
-    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/main.css"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Document</title>
@@ -30,7 +30,7 @@
                             <input id="search-input" type="search" id="form1" placeholder="Từ khoá tìm kiếm..."
                                 class="form-control" />
                         </div>
-                        <button id="search-button" type="button" class="btn btn-primary">
+                        <button id="search-button" type="button" class="btn btn-success">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -52,7 +52,7 @@
                         </ul>
                     </div>
                     <div class="navbar-login">
-                        <span class="btn_login">Đăng ký / Đăng nhập</span>
+                        <a href="login.php"><span class="btn_login">Đăng ký / Đăng nhập</span></a>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                                                     value="" data-default="" maxlength="200"
                                                     data-error="Vui lòng nhập ít nhất 3 ký tự hoặc để trống">
                                                 <div class="input-group-btn">
-                                                    <input class="btn btn-primary" type="submit" value="Tìm kiếm">
+                                                    <input class="btn btn-success" type="submit" value="Tìm kiếm">
                                                 </div>
                                             </div>
                                         </div>
@@ -270,20 +270,6 @@
                                                     data-default="07/05/2022">
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col help">
-                                        <a href="javascript:void(0);" onclick="bl_formReset();">
-                                            <i class="fa-solid fa-caret-right"></i>Thiết lập lại
-                                        </a>
-                                        <a href="page/huong-dan-tra-cuu-thong-tin-dau-thau.html">
-                                            <i class="fa-solid fa-caret-right"></i>Hướng dẫn tra cứu
-                                        </a>
-                                        <a
-                                            href="news/tu-lieu-cho-nha-thau/huong-dan-cai-dat-bo-loc-de-tim-kiem-thong-tin-dau-thau-hieu-qua-nhat-158.html">
-                                            <i class="fa-solid fa-caret-right"></i>Hướng dẫn săn thầu chủ động
-                                        </a>
                                     </div>
                                 </div>
                             </div>

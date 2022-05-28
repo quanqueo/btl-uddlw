@@ -166,7 +166,7 @@
                                         </tbody>
                                     </table>
                                     <div class="d-flex">
-                                        <a class="btn btn-primary act-plan data-pc" href="#" data-href="plan">Kế hoạch
+                                        <a class="btn btn-success act-plan data-pc" href="#" data-href="plan">Kế hoạch
                                             lựa chọn
                                             nhà thầu</a>
                                         <a class="btn btn-danger" href="/detail/" style="margin-left: auto">Xem thêm</a>

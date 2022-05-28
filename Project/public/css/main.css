@@ -82,7 +82,7 @@ ul{
 }
 .btn_login {
     padding: 8px 12px;
-    background: #007bff;
+    background: #187055;
     color: #fff;
     box-shadow: 0px 0px 5px rgb(0 0 0 / 20%);
     border-radius: 4px;
@@ -100,7 +100,7 @@ ul{
 }
 
 #header-bot{
-    background-color: #0685d6 !important;
+    background-color: #187055 !important;
     color: white;
 }
 #main-menu{
@@ -116,7 +116,7 @@ ul{
     padding-right: 25px;
 }
 #main-menu > li:hover{
-    background-color: #0576bd !important;
+    background-color: #28a745!important;
 }
 #main-menu > li > a{
     text-decoration: none;
@@ -361,7 +361,7 @@ table.bidding-table td, table.bidding-table th {
     font-size: 16px;
 }
 table.bidding-table th {
-    background-color: #0685d6;
+    background-color: #187055;;
     text-align: center;
     text-transform: uppercase;
     color: #fff;
