@@ -1,5 +1,6 @@
 <?php
     require 'layouts/header.php';
+    require 'layouts/content-top-sidebar.php';
 ?>
                             <div class="tab-content">
                                 <div id="bidding" class="tab-pane fade show">
@@ -258,5 +259,6 @@
                                         </tbody>
                                     </table>
 <?php
+    require 'layouts/sidebar-right.php';
     require 'layouts/footer.php';
 ?>

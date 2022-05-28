@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,10 +10,10 @@
 <body>
     
 </body>
-</html>
+</html> -->
 <?php 
     // session_start();
-    //require 'layouts/header.php';
+    require 'layouts/header.php';
     require_once 'db/dbhelper.php';
     require_once 'untils/untils.php';
 
@@ -137,4 +137,5 @@
             </form>
         </div>
     </div>
-<?php //require 'layouts/footer.php'?>
+    
+<?php require 'layouts/footer.php'?>
