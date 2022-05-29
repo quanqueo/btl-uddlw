@@ -21,7 +21,7 @@
             <div id="header-top">
                 <div class="navbar-brands">
                     <div class="navbar-brands-inner">
-                        <a href="index.php" class="navbar-brand float-left logo-item"><span class="logo">&nbsp;</span></a>
+                        <a href="index.php" class="navbar-brand float-left logo-item"><span class="logo" style="width: 200px;">&nbsp;</span></a>
                     </div>
                 </div>
                 <div class="navbar-search">

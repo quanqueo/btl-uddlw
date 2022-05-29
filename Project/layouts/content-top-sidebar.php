@@ -1,14 +1,13 @@
 <div id="sliders">
             <div class="slideshow-container">
                 <div class="mySlides fade">
-                    <img src="https://cdn.dauthau.asia/uploads/banners/nang-cap-thanh-sieu-cong-cu-san-thong-tin-thau-mua-sam-cong-mua-sam-tu-nhan.jpg"
-                        style="width:100%">
+                    <img src="public/images/banner1.png" style="width:100%;">
                 </div>
                 <div class="mySlides fade">
-                    <img src="https://cdn.dauthau.asia/uploads/banners/goi-sieuvip-update.jpg" style="width:100%">
+                    <img src="public/images/banner2.png" style="width:100%">
                 </div>
                 <div class="mySlides fade">
-                    <img src="https://cdn.dauthau.asia/uploads/banners/vip-1-01.png" style="width:100%">
+                    <img src="public/images/banner3.png" style="width:100%">
                 </div>
                 <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
                 <a class="next-slide" onclick="plusSlides(1)">❯</a>
