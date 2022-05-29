@@ -21,7 +21,7 @@
             <div id="header-top">
                 <div class="navbar-brands">
                     <div class="navbar-brands-inner">
-                        <a href="./index.html" class="navbar-brand float-left logo-item"><span class="logo">&nbsp;</span></a>
+                        <a href="index.php" class="navbar-brand float-left logo-item"><span class="logo">&nbsp;</span></a>
                     </div>
                 </div>
                 <div class="navbar-search">
@@ -58,7 +58,7 @@
             </div>
             <div id="header-bot">
                 <ul id="main-menu">
-                    <li><i class="fa-solid fa-house"></i></li>
+                    <li><a href="index.php" style="color: white;"><i class="fa-solid fa-house"></i></a></li>
                     <li class="dropdown">
                         <a href="#"><span>giới thiệu</span></a>
                         <ul class="dropdown-menu">

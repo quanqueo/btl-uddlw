@@ -2,10 +2,12 @@
     require 'layouts/header.php';
     require 'lib/validation.php';
     require 'db/dbhelper.php';
+    $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
     //============================VALIDATION FORM==============================
     if(isset($_POST['btn_reg'])){
         $error = array();
 
+        //username
         if(empty($_POST['username'])){
             $error['username'] = "Vui lòng nhập username";
         }
@@ -26,7 +28,7 @@
         }
 
 
-
+        //email
         if(empty($_POST['email'])){
             $error['email'] = "Vui lòng nhập email";
         }
@@ -44,6 +46,7 @@
             }
         }
 
+        //password
         if(empty($_POST['password'])){
             $error['password'] = "Vui lòng nhập password";
         }
@@ -61,6 +64,7 @@
             }
         }
 
+        //xác nhận mật khẩu
         if(empty($_POST['cfpassword'])){
             $error['cfpassword'] = "Vui lòng nhập lại password";
         }
@@ -70,7 +74,7 @@
             }
         }
 
-
+        //address
         if(empty($_POST['address'])){
             $error['address'] = "Vui lòng nhập địa chỉ";
         }
@@ -78,21 +82,46 @@
             $address = $_POST['address'];
         }
 
-
+        //phone
         if(empty($_POST['phone'])){
             $error['phone'] = "Vui lòng nhập số điện thoại";
         }
         else{
             $phone = $_POST['phone'];
         }  
+
+        //company-id
+        if(empty($_POST['company-id'])){
+            $error['company-id'] = "Vui lòng nhập mã doanh nghiệp";
+        }
+        else{
+            $company_id = $_POST['company-id'];
+        }  
+
+        //company-name
+        if(empty($_POST['company-name'])){
+            $error['company-name'] = "Vui lòng nhập tên doanh nghiệp";
+        }
+        else{
+            $company_name = $_POST['company-name'];
+        }  
         
         //Thêm bản ghi
         if(empty($error)){
-            $sql = "INSERT INTO `username` (`username`, `password`, `email`, `phone`, `address`)
-            VALUES ('$username_user','$password_user', '$email', '$phone', '$address')
+            $sqlDN = "INSERT INTO `doanhnghiep` (`madoanhnghiep`, `tendoanhnghiep`, `diachi`, `email`, `sdt`)
+            VALUES ('$company_id','$company_name', '$address', '$email', '$phone')
             ";
-            if(mysqli_query($conn,$sql)){
-                echo "Thêm bản ghi thành công";
+            $sqlACC = "INSERT INTO `account` (`username`, `password`, `madoanhnghiep`)
+            VALUES ('$username_user','$password_user', '$company_id')
+            ";
+            if(mysqli_query($conn,$sqlDN)){
+                echo "Thêm doanh nghiệp thành công";
+            }
+            else{
+                echo "Lỗi :".mysqli_error($conn);
+            }
+            if(mysqli_query($conn,$sqlACC)){
+                echo "Thêm account thành công";
             }
             else{
                 echo "Lỗi :".mysqli_error($conn);
@@ -157,9 +186,6 @@
             <label for="company-name">Tên doanh nghiệp:</label><br>
             <input type="text" name="company-name" id="company-name" value=""><br>
             <?php echo form_error('company-name');?><br>
-            <label for="website">Website:</label><br>
-            <input type="text" name="website" id="website" value=""><br>
-            <?php echo form_error('username');?><br>
             <label for="phone">Phone:</label><br>
             <input type="text" name="phone" id="phone" value="<?php echo set_value('phone');?>"><br>
             <?php echo form_error('phone');?><br>
