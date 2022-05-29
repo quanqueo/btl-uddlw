@@ -23,17 +23,17 @@
                                                 <td class="order-header" data-column="Gói thầu">
                                                     <div>
                                                         <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
-                                                            href="">
+                                                            href="detail.php?magoithau=<?php echo $item['magoithau'];?>">
                                                             <span class="bidding-code"><?php echo $item['magoithau'];?></span><?php echo $item['tengoithau'];?>
                                                         </a>
                                                     </div>
                                                 </td>
                                                 <td data-column="Bên mời thầu">
                                                     <div>
-                                                        <a title="Liên doanh Việt Nga Vietsovpetro"
+                                                        <span title="Liên doanh Việt Nga Vietsovpetro"
                                                             href="">
                                                             <span class="solicitor-code"><?php echo $item['madoanhnghiep'];?></span> <?php echo $item['tendoanhnghiep'];?>
-                                                        </a>
+                                                        </span>
                                                     </div>
                                                 </td>
                                                 <td class="text-center" data-column="Công bố">
