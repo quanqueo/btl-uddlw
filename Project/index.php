@@ -1,6 +1,8 @@
 <?php
     require 'layouts/header.php';
     require 'layouts/content-top-sidebar.php';
+
+    $goithau = executeResult("SELECT goithau.*, doanhnghiep.tendoanhnghiep FROM `goithau` INNER JOIN `doanhnghiep` ON goithau.madoanhnghiep = doanhnghiep.madoanhnghiep");
 ?>
                             <div class="tab-content">
                                 <div id="bidding" class="tab-pane fade show">
@@ -13,17 +15,16 @@
                                                 <th>Đóng thầu</th>
                                             </tr>
                                         </thead>
+                                        <?php
+                                            foreach($goithau as $item) {
+                                                ?>
                                         <tbody>
                                             <tr>
                                                 <td class="order-header" data-column="Gói thầu">
                                                     <div>
                                                         <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
                                                             href="">
-                                                            <span class="bidding-code">20220552258-00</span> Dịch vụ đại
-                                                            tu giàn
-                                                            Tam
-                                                            Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH
-                                                            VT-223/22-KB)
+                                                            <span class="bidding-code"><?php echo $item['magoithau'];?></span><?php echo $item['tengoithau'];?>
                                                         </a>
                                                     </div>
                                                 </td>
@@ -31,140 +32,21 @@
                                                     <div>
                                                         <a title="Liên doanh Việt Nga Vietsovpetro"
                                                             href="">
-                                                            <span class="solicitor-code">Z003854</span> Liên doanh Việt
-                                                            Nga
-                                                            Vietsovpetro
+                                                            <span class="solicitor-code"><?php echo $item['madoanhnghiep'];?></span> <?php echo $item['tendoanhnghiep'];?>
                                                         </a>
                                                     </div>
                                                 </td>
                                                 <td class="text-center" data-column="Công bố">
-                                                    <div>10:17 20/05/2022</div>
+                                                    <div><?php echo $item['ngaycongbo'];?></div>
                                                 </td>
                                                 <td class="text-center" data-column="Đóng thầu">
-                                                    <div>09:00 20/06/2022</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="order-header" data-column="Gói thầu">
-                                                    <div>
-                                                        <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
-                                                            href="/thongbao/moithau/dich-vu-dai-tu-gian-tam-dao-02-mua-thiet-bi-va-phu-tung-phuc-vu-sua-chua-lon-dh-vt-223-22-kb-1023083.html">
-                                                            <span class="bidding-code">20220552258-00</span> Dịch vụ đại
-                                                            tu giàn
-                                                            Tam
-                                                            Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH
-                                                            VT-223/22-KB)
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td data-column="Bên mời thầu">
-                                                    <div>
-                                                        <a title="Liên doanh Việt Nga Vietsovpetro"
-                                                            href="/procuring-entity/lien-doanh-viet-nga-vietsovpetro-2-50738/">
-                                                            <span class="solicitor-code">Z003854</span> Liên doanh Việt
-                                                            Nga
-                                                            Vietsovpetro
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center" data-column="Công bố">
-                                                    <div>10:17 20/05/2022</div>
-                                                </td>
-                                                <td class="text-center" data-column="Đóng thầu">
-                                                    <div>09:00 20/06/2022</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="order-header" data-column="Gói thầu">
-                                                    <div>
-                                                        <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
-                                                            href="/thongbao/moithau/dich-vu-dai-tu-gian-tam-dao-02-mua-thiet-bi-va-phu-tung-phuc-vu-sua-chua-lon-dh-vt-223-22-kb-1023083.html">
-                                                            <span class="bidding-code">20220552258-00</span> Dịch vụ đại
-                                                            tu giàn
-                                                            Tam
-                                                            Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH
-                                                            VT-223/22-KB)
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td data-column="Bên mời thầu">
-                                                    <div>
-                                                        <a title="Liên doanh Việt Nga Vietsovpetro"
-                                                            href="/procuring-entity/lien-doanh-viet-nga-vietsovpetro-2-50738/">
-                                                            <span class="solicitor-code">Z003854</span> Liên doanh Việt
-                                                            Nga
-                                                            Vietsovpetro
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center" data-column="Công bố">
-                                                    <div>10:17 20/05/2022</div>
-                                                </td>
-                                                <td class="text-center" data-column="Đóng thầu">
-                                                    <div>09:00 20/06/2022</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="order-header" data-column="Gói thầu">
-                                                    <div>
-                                                        <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
-                                                            href="/thongbao/moithau/dich-vu-dai-tu-gian-tam-dao-02-mua-thiet-bi-va-phu-tung-phuc-vu-sua-chua-lon-dh-vt-223-22-kb-1023083.html">
-                                                            <span class="bidding-code">20220552258-00</span> Dịch vụ đại
-                                                            tu giàn
-                                                            Tam
-                                                            Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH
-                                                            VT-223/22-KB)
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td data-column="Bên mời thầu">
-                                                    <div>
-                                                        <a title="Liên doanh Việt Nga Vietsovpetro"
-                                                            href="/procuring-entity/lien-doanh-viet-nga-vietsovpetro-2-50738/">
-                                                            <span class="solicitor-code">Z003854</span> Liên doanh Việt
-                                                            Nga
-                                                            Vietsovpetro
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center" data-column="Công bố">
-                                                    <div>10:17 20/05/2022</div>
-                                                </td>
-                                                <td class="text-center" data-column="Đóng thầu">
-                                                    <div>09:00 20/06/2022</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="order-header" data-column="Gói thầu">
-                                                    <div>
-                                                        <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
-                                                            href="/thongbao/moithau/dich-vu-dai-tu-gian-tam-dao-02-mua-thiet-bi-va-phu-tung-phuc-vu-sua-chua-lon-dh-vt-223-22-kb-1023083.html">
-                                                            <span class="bidding-code">20220552258-00</span> Dịch vụ đại
-                                                            tu giàn
-                                                            Tam
-                                                            Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH
-                                                            VT-223/22-KB)
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td data-column="Bên mời thầu">
-                                                    <div>
-                                                        <a title="Liên doanh Việt Nga Vietsovpetro"
-                                                            href="/procuring-entity/lien-doanh-viet-nga-vietsovpetro-2-50738/">
-                                                            <span class="solicitor-code">Z003854</span> Liên doanh Việt
-                                                            Nga
-                                                            Vietsovpetro
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center" data-column="Công bố">
-                                                    <div>10:17 20/05/2022</div>
-                                                </td>
-                                                <td class="text-center" data-column="Đóng thầu">
-                                                    <div>09:00 20/06/2022</div>
+                                                    <div><?php echo $item['ngaydongthau'];?></div>
                                                 </td>
                                             </tr>
                                         </tbody>
+                                        <?php
+                                            }
+                                                ?>
                                     </table>
                                     <div class="d-flex">
                                         <a class="btn btn-success act-plan data-pc" href="#" data-href="plan">Kế hoạch

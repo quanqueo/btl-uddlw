@@ -1,3 +1,7 @@
+<?php
+    require 'untils/untils.php';
+    require 'db/dbhelper.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

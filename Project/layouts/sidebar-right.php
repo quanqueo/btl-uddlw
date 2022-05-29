@@ -1,6 +1,6 @@
 <?php
-    ob_start();
     session_start();
+    ob_start();
 ?>
 <div class="d-flex">
                                         <a class="btn btn-success act-bidding data-pc" href="#"
