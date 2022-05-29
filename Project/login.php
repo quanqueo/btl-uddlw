@@ -13,6 +13,7 @@
             $sql = "SELECT * FROM `account` WHERE `username` = '$user' and `password` = '$pass'";
             $result = executeResult($sql);
             if(count($result) > 0){
+                $_SESSION['is_login'] = true;
                 $_SESSION['user'] = $user;
                 header("Location: index.php");
             }else{
@@ -111,13 +112,13 @@
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label><br>
                     <label for="" class="alert-danger"><?=$error;?></label><br>
-                    <button type="submit">Login</button>
+                    <button type="submit">Đăng nhập</button>
                     
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">
-                    <a href="register.php" class="btn btn-success">Register</a>
-                    <a href="index.php" class="btn btn-danger">Cancel</a>
+                    <a href="register.php" class="btn btn-success">Đăng ký</a>
+                    <a href="index.php" class="btn btn-danger">Trở về trang chủ</a>
                     <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>

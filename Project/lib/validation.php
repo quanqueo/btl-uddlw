@@ -30,4 +30,10 @@
         if(!empty($$label_field)) 
             return $$label_field;
     }
+
+    function is_login(){
+        if(isset($_SESSION['is_login']))
+            return true;
+        return false;
+    }
 ?>

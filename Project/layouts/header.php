@@ -1,8 +1,17 @@
 <?php
     require 'untils/untils.php';
     require 'db/dbhelper.php';
+    require 'lib/validation.php';
     ob_start();
     session_start();
+
+
+    //Code tìm kiếm
+    // if(isset($_POST['btn_search'])){
+    //     $keyword = $_POST['keyword'];
+    // }
+    // $sql = "SELECT * FROM `goithau` WHERE `goithau` LIKE '%$keyword%' ORDER BY `title`";
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,15 +40,15 @@
                     </div>
                 </div>
                 <div class="navbar-search">
-                    <div class="input-group">
+                    <form method="post" action="" class="input-group">
                         <div class="form-outline">
-                            <input id="search-input" type="search" id="form1" placeholder="Từ khoá tìm kiếm..."
+                            <input id="search-input" type="search" id="form1" name="keyword" placeholder="Từ khoá tìm kiếm..."
                                 class="form-control" />
                         </div>
-                        <button id="search-button" type="button" class="btn btn-success">
+                        <button id="search-button" type="submit" class="btn btn-success" name="btn_search">
                             <i class="fas fa-search"></i>
                         </button>
-                    </div>
+                    </form>
                 </div>
                 <div class="navbar-right">
                     <div class="navbar-contact">
@@ -58,7 +67,6 @@
                     </div>
                     <div class="navbar-login">
                         <a href="login.php"><span class="btn_login">Đăng ký / Đăng nhập</span></a>
-                        <a href="logout.php"><span class="btn_loout">Đăng xuất</span></a>
                     </div>
                 </div>
             </div>
