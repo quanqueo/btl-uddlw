@@ -12,6 +12,14 @@
     // }
     // $sql = "SELECT * FROM `goithau` WHERE `goithau` LIKE '%$keyword%' ORDER BY `title`";
     
+    //Thêm gói thầu
+    $url = "";
+    if(is_login()){
+        $url = "create-new.php";
+    }
+    else{
+        $url = "login.php";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,17 +47,6 @@
                         <a href="index.php" class="navbar-brand float-left logo-item"><span class="logo" style="width: 200px;">&nbsp;</span></a>
                     </div>
                 </div>
-                <!-- <div class="navbar-search">
-                    <form method="post" action="" class="input-group">
-                        <div class="form-outline">
-                            <input id="search-input" type="search" id="form1" name="keyword" placeholder="Từ khoá tìm kiếm..."
-                                class="form-control" />
-                        </div>
-                        <button id="search-button" type="submit" class="btn btn-success" name="btn_search">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                </div> -->
                 <div class="navbar-right">
                     <div class="navbar-contact">
                         <ul>
@@ -67,6 +64,7 @@
                     </div>
                     <div class="navbar-login">
                         <a href="login.php"><span class="btn_login">Đăng ký / Đăng nhập</span></a>
+                        <a href="<?php echo $url;?>"><span class="btn_login">Thêm gói thầu</span></a>
                     </div>
                 </div>
             </div>
