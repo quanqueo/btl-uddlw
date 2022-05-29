@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    ob_start();
+    
 ?>
 <div class="d-flex">
                                         <a class="btn btn-success act-bidding data-pc" href="#"
@@ -28,8 +27,8 @@
                         <div class="nv-block-banners">
                             <a rel="nofollow" href="#" data-target="_blank" title="QC sàn đấu thầu tư nhân"
                                 target="_blank">
-                                <img alt="QC sàn đấu thầu tư nhân"
-                                    src="https://cdn.dauthau.asia/uploads/banners/dauthau.net-mang-dau-thau-tu-nhan-tai-viet-nam.jpg">
+                                <img style="width: 100%;" alt="QC sàn đấu thầu tư nhân"
+                                    src="public/images/logo.png" />
                             </a>
                         </div>
                     </div>

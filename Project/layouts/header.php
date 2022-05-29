@@ -1,6 +1,8 @@
 <?php
     require 'untils/untils.php';
     require 'db/dbhelper.php';
+    ob_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +52,8 @@
                                         class="fa-brands fa-twitter-square"></i></a></li>
                         </ul>
                         <ul>
-                            <li><i class="fa-solid fa-phone"></i><a style="color: #28a745; text-decoration:none; font-weight:bold;" href="tel:0904634288">0977805536 (Hotline)</a></li>
-                            <li><i class="fa-solid fa-envelope"></i><a style="color: #28a745; text-decoration:none; font-weight:bold;" href="mailto:quantao134@gmail.com">btluddlwG5@gmail.com</a></li>
+                            <li><i class="fa-solid fa-phone" style="margin-right: 10px;"></i><a style="color: #28a745; text-decoration:none!important; font-weight:bold;" href="tel:0977805536">0977805536 (Hotline)</a></li>
+                            <li><i class="fa-solid fa-envelope" style="margin-right: 10px;"></i><a style="color: #28a745; text-decoration:none; font-weight:bold;" href="mailto:quantao134@gmail.com">btluddlwG5@gmail.com</a></li>
                         </ul>
                     </div>
                     <div class="navbar-login">

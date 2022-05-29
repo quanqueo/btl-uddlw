@@ -43,6 +43,7 @@ ul{
     background-repeat: no-repeat;
     background-size: 85%;
     background-position: 0 center;
+    margin: 0px 20px;
 }
 
 .navbar-search input{
@@ -53,7 +54,6 @@ ul{
     align-items: center;
 }
 .navbar-contact{
-    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
@@ -65,6 +65,10 @@ ul{
 }
 .navbar-contact > ul:first-child a{
     font-size: 30px;
+}
+
+.navbar-contact > ul:first-child a i.fa-brands{
+    font-size: 40px;
 }
 .fa-youtube-square{
  color: red;
@@ -79,6 +83,7 @@ ul{
     justify-content: space-evenly;
     text-align: center;
     height: 120px;
+    margin-right: 20px;
 }
 .btn_login {
     padding: 8px 12px;
