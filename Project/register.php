@@ -154,8 +154,12 @@
             }
             input{
                 width: 100%;
-                height: 30px;
+                height: 50px;
                 margin-top: 10px;
+            }
+            input[type=submit]{
+                width: 49%;
+                margin-bottom: 50px;
             }
             label{
                 text-align: left;
@@ -197,7 +201,7 @@
             <?php echo form_error('address');?><br>
 
             <input type="submit" class="btn btn-success" value="Đăng ký" name="btn_reg">
-            <input type="submit" class="btn btn-success" value="Trở về đăng nhập" name="btn_reLog">
+            <input type="submit" class="btn btn-warning" style="color: white;" value="Trở về đăng nhập" name="btn_reLog">
         </form>   
     </body>
 </html>
