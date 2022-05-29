@@ -2,5 +2,5 @@
     define('HOST', 'localhost');
     define('USERNAME', 'root');
     define('PASSWORD','');
-    define('DATABASE', 'infor');
+    define('DATABASE', 'uddlwg5');
 ?>

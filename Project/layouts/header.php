@@ -52,6 +52,7 @@
                     </div>
                     <div class="navbar-login">
                         <a href="login.php"><span class="btn_login">Đăng ký / Đăng nhập</span></a>
+                        <a href="logout.php"><span class="btn_loout">Đăng xuất</span></a>
                     </div>
                 </div>
             </div>

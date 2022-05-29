@@ -10,7 +10,7 @@
             $error['username'] = "Vui lòng nhập username";
         }
         else{
-            $sql = "SELECT * from `username`";
+            $sql = "SELECT * from `account`";
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result)>0) {
                 while ($rows = mysqli_fetch_assoc($result)) {
@@ -28,7 +28,7 @@
 
 
         if(empty($_POST['email'])){
-            $error['email'] = "Vui lòng nhập họ và tên";
+            $error['email'] = "Vui lòng nhập email";
         }
         else{
             if(!(strlen($_POST['email']) >= 6 && strlen($_POST['email']) <= 32)){
@@ -151,6 +151,15 @@
             <label for="cfpassword">Confirmation Password:</label><br>
             <input type="password" name="cfpassword" id="cfpassword" value="<?php echo set_value('cfpassword');?>"><br>
             <?php echo form_error('cfpassword');?><br>
+            <label for="company-id">Mã doanh nghiệp:</label><br>
+            <input type="text" name="company-id" id="company-id" value=""><br>
+            <?php echo form_error('username');?><br>
+            <label for="company-name">Tên doanh nghiệp:</label><br>
+            <input type="text" name="company-name" id="company-name" value=""><br>
+            <?php echo form_error('company-name');?><br>
+            <label for="website">Website:</label><br>
+            <input type="text" name="website" id="website" value=""><br>
+            <?php echo form_error('username');?><br>
             <label for="phone">Phone:</label><br>
             <input type="text" name="phone" id="phone" value="<?php echo set_value('phone');?>"><br>
             <?php echo form_error('phone');?><br>

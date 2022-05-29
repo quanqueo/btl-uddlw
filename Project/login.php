@@ -1,21 +1,22 @@
 <?php 
-    // session_start();
+    session_start();
+    ob_start();
     require 'layouts/header.php';
     require_once 'db/dbhelper.php';
     require_once 'untils/untils.php';
 
     $error = "";
     if(isset($_SESSION['user'])){
-        header("Location: products.php");
+        header("Location: index.php");
     }else{
         if(isset($_POST)){
             $user = getPost('uname');
             $pass = getPost('psw');
-            $sql = "SELECT * FROM sinhvien WHERE username = '$user' and password = '$pass'";
+            $sql = "SELECT * FROM `account` WHERE `username` = '$user' and `password` = '$pass'";
             $result = executeResult($sql);
             if(count($result) > 0){
                 $_SESSION['user'] = $user;
-                header("Refresh: 0");
+                header("Location: index.php");
             }else{
                 $error = "Username hoặc password không đúng";
             }
