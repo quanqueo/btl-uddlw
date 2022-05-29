@@ -17,8 +17,8 @@ ul{
     display: flex;
     align-items: center;
     height: 120px;
-    background-color: #fff;
-    width: 1320px;
+    background-color: #f2f1ec;
+    width: 100%;
     margin: auto;
 }
 .navbar-brands {
