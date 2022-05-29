@@ -1,7 +1,7 @@
 <?php
     require 'layouts/header.php';
-    require 'lib/validation.php';
-    require 'db/dbhelper.php';
+    //require 'lib/validation.php';
+    //require 'db/dbhelper.php';
     $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
     //============================VALIDATION FORM==============================
     if(isset($_POST['btn_reg'])){

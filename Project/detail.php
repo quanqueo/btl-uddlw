@@ -7,7 +7,7 @@
     // code...
         $magoithau = $_GET['magoithau'];
     }
-    $ttgoithau = executeResult("SELECT goithau.*, doanhnghiep.* FROM `goithau` INNER JOIN `doanhnghiep` ON goithau.madoanhnghiep = doanhnghiep.madoanhnghiep WHERE goithau.magoithau =".$magoithau, true);
+    $ttgoithau = executeResult("SELECT goithau.*, doanhnghiep.* FROM `goithau` INNER JOIN `doanhnghiep` ON goithau.madoanhnghiep = doanhnghiep.madoanhnghiep WHERE goithau.magoithau =".$magoithau);
     if($ttgoithau == NULL){
         header("Location: index.php");
     }
@@ -82,6 +82,7 @@
                                             }
                                                 ?>
                                     </table>
+                                    <button class="btn btn-success" onclick="addToCart(<?php echo $magoithau; ?>)">Lựa chọn gói thầu</button>
                                     <div class="d-flex">
                                         <a class="btn btn-success act-plan data-pc" href="#" data-href="plan">Kế hoạch
                                             lựa chọn
@@ -173,7 +174,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <button class="btn btn-success" onclick="addToCart(<?php echo $magoithau; ?>)">Lựa chọn gói thầu</button>
+                                    
 
 <script type="text/javascript">
     function addToCart(magoithau){     
