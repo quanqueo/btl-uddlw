@@ -34,8 +34,7 @@
                                             <tr>
                                                 <td class="order-header" data-column="Gói thầu">
                                                     <div>
-                                                        <a title="Dịch vụ đại tu giàn Tam Đảo-02 - Mua thiết bị và phụ tùng phục vụ sửa chữa lớn (ĐH VT-223/22-KB)"
-                                                            href="">
+                                                        <a title="" href="">
                                                             <span class="bidding-code"><?php echo $item['magoithau'];?></span><?php echo $item['tengoithau'];?>
                                                         </a>
                                                     </div>
@@ -174,6 +173,19 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <button class="btn btn-success" onclick="addToCart(<?php echo $magoithau; ?>)">Lựa chọn gói thầu</button>
+
+<script type="text/javascript">
+    function addToCart(magoithau){     
+        $.post('api/cookie.php',{
+        'action': 'add',
+        'id' : magoithau,
+        'num': 1
+        }, function(data){
+            location.reload();
+        });
+    }
+</script>
 <?php 
     require 'layouts/sidebar-right.php';
     require 'layouts/footer.php';
