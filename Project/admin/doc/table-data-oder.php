@@ -1,84 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>Danh sách đơn hàng | Quản trị Admin</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Main CSS-->
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  <!-- or -->
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-  <!-- Font-icon css-->
-  <link rel="stylesheet" type="text/css"
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
-</head>
-
-<body onload="time()" class="app sidebar-mini rtl">
-  <!-- Navbar-->
-  <header class="app-header">
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-      aria-label="Hide Sidebar"></a>
-    <!-- Navbar Right Menu-->
-    <ul class="app-nav">
-
-
-      <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
-
-      </li>
-    </ul>
-  </header>
-  <!-- Sidebar menu-->
-  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-  <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
-        alt="User Image">
-      <div>
-        <p class="app-sidebar__user-name"><b>Võ Trường</b></p>
-        <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
-      </div>
-    </div>
-    <hr>
-    <ul class="app-menu">
-      <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
-          <span class="app-menu__label">POS Bán Hàng</span></a></li>
-      <li><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
-            class="app-menu__label">Bảng điều khiển</span></a></li>
-      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
-          <span class="app-menu__label">Quản lý nhân viên</span></a></li>
-      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-user-voice'></i><span
-            class="app-menu__label">Quản lý khách hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-product.html"><i
-            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
-      </li>
-      <li><a class="app-menu__item " href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
-            class="app-menu__label">Quản lý đơn hàng</span></a></li>
-      <li><a class="app-menu__item active" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
-          </span></a></li>
-      <li><a class="app-menu__item" href="table-data-money.html"><i class='app-menu__icon bx bx-dollar'></i><span
-            class="app-menu__label">Bảng kê lương</span></a></li>
-      <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
-            class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
-      </li>
-      <li><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
-            class="app-menu__label">Lịch công tác </span></a></li>
-      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
-            đặt hệ thống</span></a></li>
-    </ul>
-  </aside>
+<?php 
+  require '../layouts/header.php';
+?>
     <main class="app-content">
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item active"><a href="#"><b>Quản lý nội bộ</b></a></li>
+          <li class="breadcrumb-item active"><a href="#"><b>Danh sách đơn hàng</b></a></li>
         </ul>
         <div id="clock"></div>
       </div>
@@ -89,8 +15,8 @@
               <div class="row element-button">
                 <div class="col-sm-2">
   
-                  <a class="btn btn-add btn-sm" href="form-add-bi-cam.html" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới</a>
+                  <a class="btn btn-add btn-sm" href="form-add-don-hang.html" title="Thêm"><i class="fas fa-plus"></i>
+                    Tạo mới đơn hàng</a>
                 </div>
                 <div class="col-sm-2">
                   <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
@@ -122,53 +48,80 @@
                 <thead>
                   <tr>
                     <th width="10"><input type="checkbox" id="all"></th>
-                    <th>Họ và Tên</th>
-                    <th>Ngày sinh</th>
-                    <th>Chức vụ</th>
-                    <th>Lý do cấm</th>
+                    <th>ID đơn hàng</th>
+                    <th>Khách hàng</th>
+                    <th>Đơn hàng</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
                     <th>Tình trạng</th>
-                    <th>Chức năng</th>
+                    <th>Tính năng</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>Kiều Thái Anh</td>
-                    <td>10/09/1998</td>
-                    <td>Thu Ngân</td>
-                    <td>Gian lận trong công việc đã lấy trộm tiền của công ty và thái độ không ăn năn hối lỗi</td>
-                    <td><span class="badge bg-danger">Sa thải</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
+                    <td>MD0837</td>
+                    <td>Triệu Thanh Phú</td>
+                    <td>Ghế làm việc Zuno, Bàn ăn gỗ Theresa</td>
+                    <td>2</td>
+                    <td>9.400.000 đ</td>
+                    <td><span class="badge bg-success">Hoàn thành</span></td>
+                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>Nguyễn Thị Kim Yến</td>
-                    <td>02/12/1999</td>
-                    <td>Thu Ngân</td>
-                    <td>Gian lận trong công việc đã lấy trộm tiền của công ty và thái độ không ăn năn hối lỗi</td>
-                    <td><span class="badge bg-danger">Sa thải</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
+                    <td>MĐ8265</td>
+                    <td>Nguyễn Thị Ngọc Cẩm</td>
+                    <td>Ghế ăn gỗ Lucy màu trắng</td>
+                    <td>1</td>
+                    <td>3.800.000 đ</td>                 
+                    <td><span class="badge bg-success">Hoàn thành</span></td>
+                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>Nguyễn Hoàng Thái Nhật</td>                
-                    <td>07/02/1996</td>
-                    <td>Quản kho</td>
-                    <td>Tự ý thay đổi thông tin nhân viên và không báo cáo quản lý</td>
-                    <td><span class="badge bg-warning">Khóa tài khoản</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
+                    <td>MT9835</td>
+                    <td>Đặng Hoàng Phúc</td>
+                    <td>Giường ngủ Jimmy, Bàn ăn mở rộng cao cấp Dolas, Ghế làm việc Zuno</td>
+                    <td>3 </td>
+                    <td>40.650.000 đ</td>
+                    <td><span class="badge bg-success">Hoàn thành</span></td>
+                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>Võ Thành Nam</td>
-                    <td>19/09/1999</td>
-                    <td>Dịch vụ</td>
-                    <td>Phá hỏng 9 sản phẩm của công ty, có kháng cự khi bị bắt (bồi thường 125.000.000 đ)</td>
-                    <td><span class="badge bg-danger">Sa thải</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
+                    <td>ER3835</td>
+                    <td>Nguyễn Thị Mỹ Yến</td>
+                    <td>Bàn ăn mở rộng Gepa</td>
+                    <td>1 </td>
+                    <td>16.770.000 đ</td>
+                    <td><span class="badge bg-info">Chờ thanh toán</span></td>
+                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
+                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                    <td>AL3947</td>
+                    <td>Phạm Thị Ngọc</td>
+                    <td>Bàn ăn Vitali mặt đá, Ghế ăn gỗ Lucy màu trắng</td>
+                    <td>2 </td>
+                    <td>19.770.000 đ</td>
+                    <td><span class="badge bg-warning">Đang giao hàng</span></td>
+                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
+                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                    <td>QY8723</td>
+                    <td>Ngô Thái An</td>
+                    <td>Giường ngủ Kara 1.6x2m</td>
+                    <td>1 </td>
+                    <td>14.500.000 đ</td>
+                    <td><span class="badge bg-danger">Đã hủy</span></td>
+                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                 </tbody>
@@ -178,7 +131,7 @@
         </div>
       </div>
     </main>
-   <!-- Essential javascripts for application to work-->
+  <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -203,7 +156,7 @@
         swal({
           title: "Cảnh báo",
          
-          text: "Bạn có chắc chắn là muốn xóa?",
+          text: "Bạn có chắc chắn là muốn xóa đơn hàng này?",
           buttons: ["Hủy bỏ", "Đồng ý"],
         })
           .then((willDelete) => {
@@ -306,5 +259,6 @@
       $("#ModalUP").modal({ backdrop: false, keyboard: false })
     });
   </script>
-  </body>
+</body>
+
 </html>

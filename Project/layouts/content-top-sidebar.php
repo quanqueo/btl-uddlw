@@ -39,30 +39,30 @@
                                     <label class="control-label"><strong>Từ khóa chính</strong></label>
                                     <div class="search-cont-row">
                                         <div class="col-xs-24">
-                                            <div class="input-group">
+                                            <form class="input-group" method="post" action="search.php">
                                                 <input class="form-control" id="ls_key_bidding" type="text" name="q"
                                                     value="" data-default="" maxlength="200"
                                                     data-error="Vui lòng nhập ít nhất 3 ký tự hoặc để trống">
                                                 <div class="input-group-btn">
                                                     <input class="btn btn-success" type="submit" value="Tìm kiếm">
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label class="control-label"><strong>Thông tin dành cho</strong></label>
-                                    <div class="d-flex">
-                                        <label class="custom-radio-inline"> <input type="radio" name="type_search"
-                                                value="1" checked=""><span class="span-txt">Nhà thầu</span>
-                                        </label> <label class="custom-radio-inline"> <input type="radio"
-                                                name="type_search" value="2"><span class="span-txt">Nhà đầu tư</span>
-                                        </label>
+                                <!-- <div class="col">
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>Thông tin dành cho</strong></label>
+                                        <div class="d-flex">
+                                            <label class="custom-radio-inline"> <input type="radio" name="type_search"
+                                                    value="1" checked=""><span class="span-txt">Nhà thầu</span>
+                                            </label> <label class="custom-radio-inline"> <input type="radio"
+                                                    name="type_search" value="2"><span class="span-txt">Nhà đầu tư</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div> -->
                         </div>
                         <div class="row">
                             <div class="col">
@@ -80,7 +80,7 @@
                                                 <option value="5">Kết quả mở thầu</option>
                                                 <option value="6">Kết quả sơ tuyển</option>
                                             </select>
-                                            <select class="form-control" onchange="bl_changeTypeInfo2()"
+                                            <!-- <select class="form-control" onchange="bl_changeTypeInfo2()"
                                                 name="type_info2" data-default="1" style="display: none">
                                                 <option value="1">Công bố danh mục dự án</option>
                                                 <option value="2">Thông báo mời đầu tư</option>
@@ -93,7 +93,7 @@
                                                 name="type_info3" data-default="1" style="display: none">
                                                 <option value="1">Thông báo công khai việc đấu giá</option>
                                                 <option value="2">Thông báo lựa chọn tổ chức đấu giá</option>
-                                            </select>
+                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="col">

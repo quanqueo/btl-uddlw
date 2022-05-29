@@ -39,7 +39,7 @@
                         <a href="index.php" class="navbar-brand float-left logo-item"><span class="logo" style="width: 200px;">&nbsp;</span></a>
                     </div>
                 </div>
-                <div class="navbar-search">
+                <!-- <div class="navbar-search">
                     <form method="post" action="" class="input-group">
                         <div class="form-outline">
                             <input id="search-input" type="search" id="form1" name="keyword" placeholder="Từ khoá tìm kiếm..."
@@ -49,7 +49,7 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
-                </div>
+                </div> -->
                 <div class="navbar-right">
                     <div class="navbar-contact">
                         <ul>
