@@ -32,10 +32,10 @@
                 <!-- Section: Text -->
                 <section class="mb-4">
                     <h4>
-                        DauThau.info - Siêu công cụ săn tin thầu mua sắm công và mua sắm tư nhân
+                        UDDLW G5 - Siêu công cụ săn tin thầu mua sắm công và mua sắm tư nhân
                     </h4>
                     <p>
-                        DauThau.info là hệ thống phần mềm phân tích thông tin mời thầu thế hệ mới dành cho doanh nghiệp,
+                    UDDLW G5 là hệ thống phần mềm phân tích thông tin mời thầu thế hệ mới dành cho doanh nghiệp,
                         giúp doanh nghiệp tìm kiếm, phân tích thông tin về các dự án đấu thầu mua sắm công và mua sắm tư
                         nhân trên cả nước.
                     </p>

@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+    session_start();
+?>
 <div class="d-flex">
                                         <a class="btn btn-success act-bidding data-pc" href="#"
                                             data-href="bidding">Thông báo mời thầu</a>
@@ -13,7 +17,7 @@
                                 <h3 class="title__tab_heading" style="color: #28a745">Lời chào</h3>
                             </div>
                             <div class="tab-content">
-                                <p>Chào <strong>Bạn</strong>,</p>
+                                <p>Chào <strong></strong>,</p>
                                 <p>Bạn chưa đăng nhập, vui lòng <a href="login.php"><strong style="color: #28a745">đăng nhập</strong></a> để sử dụng
                                     hết các chức năng dành cho thành viên.</p>
                                 <p>
