@@ -1,7 +1,6 @@
 <?php
     session_start();
     ob_start();
-    require 'layouts/header.php';
     require_once '../db/dbhelper.php';
     require_once '../untils/untils.php';
 
