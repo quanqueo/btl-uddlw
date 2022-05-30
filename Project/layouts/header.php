@@ -115,8 +115,13 @@
                     </li>
                     <li class="dropdown"><a href="#"><span>đấu thầu</span></a>
                         <ul class="dropdown-menu">
-
-                            <li class="dropdown-item list-group-item">item 1</li>
+                            <li class="dropdown-item list-group-item"><span>Dự án đầu tư phát triển</span></li>
+                            <li class="dropdown-item list-group-item"><span>Kế hoạch lựa chọn nhà thầu</span></li>
+                            <li class="dropdown-item list-group-item"><span>Mời sơ tuyển/ mời quan tâm</span></li>
+                            <li class="dropdown-item list-group-item"><span>Kết quả sơ tuyển</span></li>
+                            <li class="dropdown-item list-group-item"><span>Thông báo mời thầu</span></li>
+                            <li class="dropdown-item list-group-item"><span>Kết quả mở thầu</span></li>
+                            <li class="dropdown-item list-group-item"><span>Kết quả lựa chọn nhà thầu</span></li>
                         </ul>
                     </li>
                     <li class="dropdown">
