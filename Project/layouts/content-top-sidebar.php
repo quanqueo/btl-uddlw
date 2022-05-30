@@ -119,7 +119,7 @@
             </div>
             <div class="container pb-5">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-9">
                         <div class="block-bidding px-0">
                             <div class="border-bidding data-pc pt-3">
                                 <ul class="nav nav-pills">
