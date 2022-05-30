@@ -152,6 +152,13 @@
     $("#show-emp").on("click", function () {
       $("#ModalUP").modal({ backdrop: false, keyboard: false })
     });
+
+    document.querySelectorAll(".app-menu__item").forEach(element => {
+              element.classList.remove("active")
+              if(element.getAttribute("href") == "qldn.php"){
+                  element.classList.add("active")
+              }
+        });
   </script>
 </body>
 
