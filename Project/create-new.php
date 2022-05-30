@@ -1,128 +1,59 @@
 <?php 
     require 'layouts/header.php';
-    require 'layouts/content-top-sidebar.php';
+    // require 'layouts/content-top-sidebar.php';
     //require 'lib/validation.php';
     //require 'db/dbhelper.php';
     $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
     //============================VALIDATION FORM==============================
-    if(isset($_POST['btn_reg'])){
+
+    //Lấy mã doanh nghiệp của user hiện hành
+    $user_name = $_SESSION['user'];
+    $sql = executeResult("SELECT madoanhnghiep FROM `account` WHERE username = '".$user_name."'");
+    $madoanhnghiep = $sql[0]['madoanhnghiep'];
+
+    if(isset($_POST['btn_add'])){
         $error = array();
 
-        //username
-        if(empty($_POST['username'])){
-            $error['username'] = "Vui lòng nhập username";
+        //mã gói thầu
+        if(empty($_POST['package-id'])){
+            $error['package-id'] = "Vui lòng nhập mã gói thầu";
         }
         else{
-            $sql = "SELECT * from `account`";
-            $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result)>0) {
-                while ($rows = mysqli_fetch_assoc($result)) {
-                    if($_POST['username'] == $rows['username'])
-                    {
-                        $error['username'] = "Username đã tồn tại. Vui lòng nhập lại !";
-                    }
-                    else{
-                        $username_user = $_POST['username'];
-                    }
-                }
-            }  
+            $package_id = $_POST['package-id'];
         }
 
-
-        //email
-        if(empty($_POST['email'])){
-            $error['email'] = "Vui lòng nhập email";
+        //tên gói thầu
+        if(empty($_POST['package-name'])){
+            $error['package-name'] = "Vui lòng nhập tên gói thầu";
         }
         else{
-            if(!(strlen($_POST['email']) >= 6 && strlen($_POST['email']) <= 32)){
-                $error['email'] = "Email có từ 6 đến 32 kí tự";
-            }
-            else{
-                if(!is_email($_POST['email'])){
-                    $error['email'] = "Email chưa đúng định dạng";
-                }
-                else{
-                    $email = $_POST['email'];
-                }
-            }
-        }
-
-        //password
-        if(empty($_POST['password'])){
-            $error['password'] = "Vui lòng nhập password";
-        }
-        else{
-            if(!(strlen($_POST['password']) >= 6 && strlen($_POST['password']) <= 32)){
-                $error['password'] = "Mật khẩu có từ 6 đến 32 kí tự";
-            }
-            else{
-                if(!is_password($_POST['password'])){
-                    $error['password'] = "Mật khẩu chưa đúng định dạng";
-                }
-                else{
-                    $password_user = $_POST['password'];
-                }
-            }
-        }
-
-        //xác nhận mật khẩu
-        if(empty($_POST['cfpassword'])){
-            $error['cfpassword'] = "Vui lòng nhập lại password";
-        }
-        else{
-            if($_POST['cfpassword'] != $password_user){
-                $error['cfpassword'] = "Mật khẩu chưa khớp";
-            }
-        }
-
-        //address
-        if(empty($_POST['address'])){
-            $error['address'] = "Vui lòng nhập địa chỉ";
-        }
-        else{
-            $address = $_POST['address'];
-        }
-
-        //phone
-        if(empty($_POST['phone'])){
-            $error['phone'] = "Vui lòng nhập số điện thoại";
-        }
-        else{
-            $phone = $_POST['phone'];
+            $package_name = $_POST['package-name'];
         }  
 
-        //company-id
-        if(empty($_POST['company-id'])){
-            $error['company-id'] = "Vui lòng nhập mã doanh nghiệp";
+        //ngày công bố
+        if(empty($_POST['start-time'])){
+            $error['start-time'] = "Vui lòng chọn ngày công bố";
         }
         else{
-            $company_id = $_POST['company-id'];
+            $start_time = $_POST['start-time'];
         }  
 
-        //company-name
-        if(empty($_POST['company-name'])){
-            $error['company-name'] = "Vui lòng nhập tên doanh nghiệp";
+        //ngày đóng thầu
+        if(empty($_POST['end-time'])){
+            $error['end-time'] = "Vui lòng chọn ngày đóng thầu";
         }
         else{
-            $company_name = $_POST['company-name'];
+            $end_time = $_POST['end-time'];
         }  
         
         //Thêm bản ghi
         if(empty($error)){
-            $sqlDN = "INSERT INTO `doanhnghiep` (`madoanhnghiep`, `tendoanhnghiep`, `diachi`, `email`, `sdt`)
-            VALUES ('$company_id','$company_name', '$address', '$email', '$phone')
+            $sqlGT = "INSERT INTO `goithau` (`magoithau`, `tengoithau`, `madoanhnghiep`, `ngaycongbo`, `ngaydongthau`)
+            VALUES ('$package_id','$package_name', '$madoanhnghiep', '$start_time', '$end_time')
             ";
-            $sqlACC = "INSERT INTO `account` (`username`, `password`, `madoanhnghiep`)
-            VALUES ('$username_user','$password_user', '$company_id')
-            ";
-            if(mysqli_query($conn,$sqlDN)){
-                echo "Thêm doanh nghiệp thành công";
-            }
-            else{
-                echo "Lỗi :".mysqli_error($conn);
-            }
-            if(mysqli_query($conn,$sqlACC)){
-                echo "Thêm account thành công";
+
+            if(mysqli_query($conn,$sqlGT)){
+                echo "Thêm gói thầu thành công";
             }
             else{
                 echo "Lỗi :".mysqli_error($conn);
@@ -132,7 +63,7 @@
     }
     //==========================END VALIDATION================================
     if(isset($_POST['btn_reLog'])){
-        header("Location: login.php");
+        header("Location: index.php");
     }
 ?>
 
@@ -173,41 +104,29 @@
                 color: white;
             }
         </style>
-        <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+        <h1>Thêm gói thầu - User : <strong style="color: black; display: inline;"><?php echo $_SESSION['user'];?></st></h1>
 
         <form action="" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" name="username" id="username" value=""><br>
-            <?php echo form_error('username');?><br>
-            <label for="password">Password:</label><br>
-            <input type="password" name="password" id="password" value="<?php echo set_value('password');?>"><br>
-            <?php echo form_error('password');?><br>
-            <label for="cfpassword">Confirmation Password:</label><br>
-            <input type="password" name="cfpassword" id="cfpassword" value="<?php echo set_value('cfpassword');?>"><br>
-            <?php echo form_error('cfpassword');?><br>
-            <label for="company-id">Mã doanh nghiệp:</label><br>
-            <input type="text" name="company-id" id="company-id" value=""><br>
-            <?php echo form_error('username');?><br>
-            <label for="company-name">Tên doanh nghiệp:</label><br>
-            <input type="text" name="company-name" id="company-name" value=""><br>
-            <?php echo form_error('company-name');?><br>
-            <label for="phone">Phone:</label><br>
-            <input type="text" name="phone" id="phone" value="<?php echo set_value('phone');?>"><br>
-            <?php echo form_error('phone');?><br>
-            <label for="email">Email:</label><br>
-            <input type="text" name="email" id="email" value="<?php echo set_value('email');?>"><br>
-            <?php echo form_error('email');?><br>
-            <label for="address">Address:</label><br>
-            <input type="text" name="address" id="address" value="<?php echo set_value('address');?>"><br><br>
-            <?php echo form_error('address');?><br>
+            <label for="package-id">Mã gói thầu:</label><br>
+            <input type="text" name="package-id" id="package-id" value=""><br>
+            <?php echo form_error('package-id');?><br>
+            <label for="package-name">Tên gói thầu:</label><br>
+            <input type="text" name="package-name" id="package-name" value=""><br>
+            <?php echo form_error('package-name');?><br>
+            <label for="start-time">Ngày công bố:</label><br>
+            <input type="date" name="start-time" id="start-time" value=""><br>
+            <?php echo form_error('start-time');?><br>
+            <label for="end-time">Ngày đóng thầu:</label><br>
+            <input type="date" name="end-time" id="end-time" value=""><br>
+            <?php echo form_error('end-time');?><br>
 
-            <input type="submit" class="btn btn-success" value="Đăng ký" name="btn_reg">
-            <input type="submit" class="btn btn-warning" style="color: white;" value="Trở về đăng nhập" name="btn_reLog">
+            <input type="submit" class="btn btn-success" value="Thêm gói thầu" name="btn_add">
+            <input type="submit" class="btn btn-warning" style="color: white;" value="Trở về trang chủ" name="btn_reLog">
         </form>   
     </body>
 </html>
 
 <?php 
-    require 'layouts/sidebar-right.php';
+    //require 'layouts/sidebar-right.php';
     require 'layouts/footer.php';
 ?>
