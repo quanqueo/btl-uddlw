@@ -16,7 +16,7 @@
                 $error['email-update'] = "Email có từ 6 đến 32 kí tự";
             }
             else{
-                    $email_update = $_POST['email-update'];
+                $email_update = $_POST['email-update'];
             }
         }
 
@@ -28,20 +28,16 @@
             if(!(strlen($_POST['password-update']) >= 6 && strlen($_POST['password-update']) <= 32)){
                 $error['password-update'] = "Mật khẩu có từ 6 đến 32 kí tự";
             }
-            else{
-                if(!is_password($_POST['password-update'])){
-                    $error['password-update'] = "Mật khẩu chưa đúng định dạng";
-                }
-                else{
+            else{ 
                     $password_user_update = $_POST['password-update'];
-                    $sqlUPDATEACC = "UPDATE  `account` SET `password`= '{$password_user_update }' WHERE `madoanhnghiep` = ".$_GET['madoanhnghiep'];
+                    //ĐỔi mật khẩu
+                    $sqlUPDATEACC = "UPDATE `account` SET `password`= '{$password_user_update}' WHERE `madoanhnghiep` = '".$_GET['madoanhnghiep']."'";
                     if(mysqli_query($conn,$sqlUPDATEACC)){
                         header("Location: qldn.php");
                     }
                     else{
                         echo "Lỗi :".mysqli_error($conn);
                     }
-                }
             }
         }
 
@@ -69,13 +65,11 @@
             $company_name_update = $_POST['company-name-update'];
         }  
 
+
         //Sửa bản ghi
         if(empty($error)){
-            $sqlUPDATEDN = "UPDATE `doanhnghiep` SET `tendoanhnghiep`= '{$company_name_update}',
-            `diachi` =  '{$address_update}',
-            `email` =  '{$email_update}',
-            `sdt` =  '{$phone_update}',
-            WHERE `madoanhnghiep` = ".$_GET['madoanhnghiep'];
+            $sqlUPDATEDN = "UPDATE `doanhnghiep` SET `tendoanhnghiep`= '{$company_name_update}', `diachi` = '{$address_update}', `email` = '{$email_update}', `sdt` = '{$phone_update}' WHERE `madoanhnghiep` =".$_GET['madoanhnghiep'];
+
 
             if(mysqli_query($conn,$sqlUPDATEDN)){
                 header("Location: qldn.php");
@@ -89,6 +83,7 @@
     $conn->close();
     $sqlDN = executeResult("SELECT doanhnghiep.*, account.password FROM doanhnghiep INNER JOIN account ON doanhnghiep.madoanhnghiep = account.madoanhnghiep WHERE doanhnghiep.madoanhnghiep =".$_GET['madoanhnghiep']);
 ?>    
+
         <div class="update-dn col-md-10 mt-4 float-right">
             <div class="row">
                 <div class="form-group  col-md-12">
@@ -132,7 +127,7 @@
                 <?php } ?>
 
                 <input class="btn btn-save" type="submit" name="btn_save" value="Lưu lại">
-                <a class="btn btn-cancel" href="qldn.php">Hủy bỏ</a>
+                <a class="btn btn-cancel" href="qlgt.php">Hủy bỏ</a>
             </form>
             <BR>
         </div>
