@@ -82,7 +82,6 @@
                                             }
                                                 ?>
                                     </table>
-                                    <button class="btn btn-success" onclick="addToCart(<?php echo $magoithau; ?>)">Lựa chọn gói thầu</button>
                                     <div class="d-flex">
                                         <a class="btn btn-success act-plan data-pc" href="#" data-href="plan">Kế hoạch
                                             lựa chọn
@@ -176,17 +175,7 @@
                                     </table>
                                     
 
-<script type="text/javascript">
-    function addToCart(magoithau){     
-        $.post('api/cookie.php',{
-        'action': 'add',
-        'id' : magoithau,
-        'num': 1
-        }, function(data){
-            location.reload();
-        });
-    }
-</script>
+
 <?php 
     require 'layouts/sidebar-right.php';
     require 'layouts/footer.php';
