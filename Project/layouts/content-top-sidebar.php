@@ -1,3 +1,6 @@
+<?php
+    
+?>
 <div id="sliders">
             <div class="slideshow-container">
                 <div class="mySlides fade">
@@ -39,12 +42,12 @@
                                     <label class="control-label"><strong>Từ khóa chính</strong></label>
                                     <div class="search-cont-row">
                                         <div class="col-xs-24">
-                                            <form class="input-group" method="post" action="search.php">
-                                                <input class="form-control" id="ls_key_bidding" type="text" name="q"
+                                            <form class="input-group" method="GET" action="search.php">
+                                                <input class="form-control" id="ls_key_bidding" type="text" name="keyword"
                                                     value="" data-default="" maxlength="200"
                                                     data-error="Vui lòng nhập ít nhất 3 ký tự hoặc để trống">
                                                 <div class="input-group-btn">
-                                                    <input class="btn btn-success" type="submit" value="Tìm kiếm">
+                                                    <input class="btn btn-success"name="btn_search" type="submit" value="Tìm kiếm">
                                                 </div>
                                             </form>
                                         </div>

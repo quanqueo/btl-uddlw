@@ -5,13 +5,6 @@
     ob_start();
     session_start();
 
-
-    //Code tìm kiếm
-    // if(isset($_POST['btn_search'])){
-    //     $keyword = $_POST['keyword'];
-    // }
-    // $sql = "SELECT * FROM `goithau` WHERE `goithau` LIKE '%$keyword%' ORDER BY `title`";
-    
     //Thêm gói thầu
     $url = "";
     if(is_login()){

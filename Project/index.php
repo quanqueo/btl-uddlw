@@ -2,6 +2,7 @@
     require 'layouts/header.php';
     require 'layouts/content-top-sidebar.php';
 
+    
     $goithau = executeResult("SELECT goithau.*, doanhnghiep.tendoanhnghiep FROM `goithau` INNER JOIN `doanhnghiep` ON goithau.madoanhnghiep = doanhnghiep.madoanhnghiep");
 ?>
                             <div class="tab-content">
