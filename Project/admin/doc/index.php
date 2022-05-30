@@ -87,6 +87,13 @@
       </div>
       <!--END right-->
     </div>
-
+  <script>
+    document.querySelectorAll(".app-menu__item").forEach(element => {
+              element.classList.remove("active")
+              if(element.getAttribute("href") == "index.php"){
+                  element.classList.add("active")
+              }
+        });
+  </script>
 
    <?php require '../layouts/footer.php';?>

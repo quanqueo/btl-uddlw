@@ -124,6 +124,12 @@
         return i;
       }
     }
+    document.querySelectorAll(".app-menu__item").forEach(element => {
+              element.classList.remove("active")
+              if(element.getAttribute("href") == "qlgt.php"){
+                  element.classList.add("active")
+              }
+        });
     </script>
 </body>
 
