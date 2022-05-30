@@ -1,46 +1,66 @@
 <?php
   require '../layouts/header.php';
-?>
-<script>
 
-function readURL(input, thumbimage) {
-  if (input.files && input.files[0]) { //Sử dụng  cho Firefox - chrome
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $("#thumbimage").attr('src', e.target.result);
+  $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
+    //============================VALIDATION FORM==============================
+    if(isset($_POST['btn_addGT'])){
+        $error = array();
+
+        //Mã gói thầu
+        if(empty($_POST['package-id'])){
+            $error['package-id'] = "Vui lòng nhập mã gói thầu";
+        }
+        else{
+            $package_id = $_POST['package-id'];
+        }
+
+        //Tên gói thầu
+        if(empty($_POST['package-name'])){
+            $error['package-name'] = "Vui lòng nhập tên gói thầu";
+        }
+        else{
+            $package_name = $_POST['package-name'];
+        }  
+
+        //company-id
+        if(empty($_POST['company-id'])){
+            $error['company-id'] = "Vui lòng nhập mã doanh nghiệp";
+        }
+        else{
+            $company_id = $_POST['company-id'];
+        }  
+
+        //Ngày công bố
+        if(empty($_POST['start-time'])){
+            $error['start-time'] = "Vui lòng nhập ngày công bố";
+        }
+        else{
+            $start_time = $_POST['start-time'];
+        }  
+
+        //Ngày đóng thầu
+        if(empty($_POST['end-time'])){
+          $error['end-time'] = "Vui lòng nhập ngày đóng thầu";
+        }
+        else{
+            $end_time = $_POST['end-time'];
+        }  
+        
+        //Thêm bản ghi
+        if(empty($error)){
+            $sqlGT = "INSERT INTO `goithau` (`magoithau`, `tengoithau`, `madoanhnghiep`, `ngaycongbo`, `ngaydongthau`)
+            VALUES ('$package_id','$package_name', '$company_id', '$start_time', '$end_time')
+            ";
+            if(mysqli_query($conn,$sqlGT)){
+                //echo "Thêm doanh nghiệp thành công";
+            }
+            else{
+                echo "Lỗi :".mysqli_error($conn);
+            }
+        }
+        mysqli_close($conn);
     }
-    reader.readAsDataURL(input.files[0]);
-  }
-  else { // Sử dụng cho IE
-    $("#thumbimage").attr('src', input.value);
-
-  }
-  $("#thumbimage").show();
-  $('.filename').text($("#uploadfile").val());
-  $('.Choicefile').css('background', '#14142B');
-  $('.Choicefile').css('cursor', 'default');
-  $(".removeimg").show();
-  $(".Choicefile").unbind('click');
-
-}
-$(document).ready(function () {
-  $(".Choicefile").bind('click', function () {
-    $("#uploadfile").click();
-
-  });
-  $(".removeimg").click(function () {
-    $("#thumbimage").attr('src', '').hide();
-    $("#myfileupload").html('<input type="file" id="uploadfile"  onchange="readURL(this);" />');
-    $(".removeimg").hide();
-    $(".Choicefile").bind('click', function () {
-      $("#uploadfile").click();
-    });
-    $('.Choicefile').css('background', '#14142B');
-    $('.Choicefile').css('cursor', 'pointer');
-    $(".filename").text("");
-  });
-})
-</script>
+?>
   <style>
     .Choicefile {
       display: block;
@@ -114,109 +134,41 @@ $(document).ready(function () {
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách sản phẩm</li>
-        <li class="breadcrumb-item"><a href="#">Thêm sản phẩm</a></li>
+        <li class="breadcrumb-item"><a href="qlgt.php">Danh sách gói thầu</a></li>
+        <li class="breadcrumb-item"><a href="#">Thêm gói thầu</a></li>
       </ul>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Tạo mới sản phẩm</h3>
+          <h3 class="tile-title">Tạo mới gói thầu</h3>
           <div class="tile-body">
-            <div class="row element-button">
-              <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i
-                    class="fas fa-folder-plus"></i> Thêm nhà cung cấp</a>
+            <form class="row" method="post">
+              <div class="form-group col-md-6">
+                <label class="control-label">Mã gói thầu</label>
+                <input class="form-control" type="text" name="package-id" placeholder="">
               </div>
-              <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
-                    class="fas fa-folder-plus"></i> Thêm danh mục</a>
-              </div>
-              <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i
-                    class="fas fa-folder-plus"></i> Thêm tình trạng</a>
-              </div>
-            </div>
-            <form class="row">
-              <div class="form-group col-md-3">
-                <label class="control-label">Mã sản phẩm </label>
-                <input class="form-control" type="number" placeholder="">
-              </div>
-              <div class="form-group col-md-3">
-                <label class="control-label">Tên sản phẩm</label>
-                <input class="form-control" type="text">
-              </div>
-
-
-              <div class="form-group  col-md-3">
-                <label class="control-label">Số lượng</label>
-                <input class="form-control" type="number">
-              </div>
-              <div class="form-group col-md-3 ">
-                <label for="exampleSelect1" class="control-label">Tình trạng</label>
-                <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn tình trạng --</option>
-                  <option>Còn hàng</option>
-                  <option>Hết hàng</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Danh mục</label>
-                <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn danh mục --</option>
-                  <option>Bàn ăn</option>
-                  <option>Bàn thông minh</option>
-                  <option>Tủ</option>
-                  <option>Ghế gỗ</option>
-                  <option>Ghế sắt</option>
-                  <option>Giường người lớn</option>
-                  <option>Giường trẻ em</option>
-                  <option>Bàn trang điểm</option>
-                  <option>Giá đỡ</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3 ">
-                <label for="exampleSelect1" class="control-label">Nhà cung cấp</label>
-                <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn nhà cung cấp --</option>
-                  <option>Phong vũ</option>
-                  <option>Thế giới di động</option>
-                  <option>FPT</option>
-                  <option>Võ Trường</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label class="control-label">Giá bán</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group col-md-3">
-                <label class="control-label">Giá vốn</label>
-                <input class="form-control" type="text">
+              <div class="form-group  col-md-6">
+                <label class="control-label">Mã doanh nghiệp</label>
+                <input class="form-control" type="text" name="company-id">
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Ảnh sản phẩm</label>
-                <div id="myfileupload">
-                  <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);" />
-                </div>
-                <div id="thumbbox">
-                  <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
-                  <a class="removeimg" href="javascript:"></a>
-                </div>
-                <div id="boxchoice">
-                  <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
-                  <p style="clear:both"></p>
-                </div>
-
+                <label class="control-label">Tên gói thầu</label>
+                <input class="form-control" type="text" name="package-name">
               </div>
-              <div class="form-group col-md-12">
-                <label class="control-label">Mô tả sản phẩm</label>
-                <textarea class="form-control" name="mota" id="mota"></textarea>
-                <script>CKEDITOR.replace('mota');</script>
+              <div class="form-group  col-md-6">
+                <label class="control-label">Ngày công bố</label>
+                <input class="form-control" type="date" name="start-time">
               </div>
 
+              <div class="form-group  col-md-6">
+                <label class="control-label">Ngày đóng thầu</label>
+                <input class="form-control" type="date" name="end-time">
+              </div>
+              <input type="submit" class="btn btn-save p-3 ml-3 form-group col-md-2" name="btn_addGT" value="Thêm">
+              <a class="btn btn-cancel ml-3 p-3 form-group col-md-2" href="qlgt.php">Hủy bỏ</a>
+            </form>
           </div>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
         </div>
   </main>
 
@@ -344,7 +296,7 @@ MODAL
 
 
 
-  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></s>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
