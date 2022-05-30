@@ -3,7 +3,7 @@
 ?>
 <div id="sliders">
             <div class="slideshow-container">
-                <div class="mySlides fade">
+                <div class="mySlides show fade">
                     <img src="public/images/banner1.png" style="width:100%;">
                 </div>
                 <div class="mySlides fade">
